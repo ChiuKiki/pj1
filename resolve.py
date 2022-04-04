@@ -8,10 +8,10 @@
 import dns.resolver
 
 
-def resolve(ip, domain, dns_type):
+def rsv(ip, domain, dns_type):
     local_server = dns.resolver.Resolver()
     local_server.nameservers = [ip]                     # 指定本机的DNS服务器
-    record = local_server.resolve(domain, dns_type)     # 只有CNAME的域名前要加www，其他不用
+    record = local_server.query(domain, dns_type)     # 只有CNAME的域名前要加www，其他不用
 
     if dns_type == 'A':
         res = []
