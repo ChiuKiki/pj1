@@ -20,3 +20,13 @@ def ruling(a):
         return q
     else:
         return 0
+
+# def ruling2(a):
+#     counter = {}
+#     for k in a:
+#         if a.count(k) >= 1:
+#             counter[str(k)] = a.count(k)
+#     print(counter)
+#     # 对返回的结果按照字典的值从大到小排序
+#     counter1 = sorted(counter.items(), key=lambda x: x[1], reverse=True)
+#     print(counter1[0][0])
