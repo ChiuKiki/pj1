@@ -34,3 +34,10 @@ def rsv(ip, domain, dns_type):
             res_pre.append(i.preference)    # 优先级
             res_exc.append(i.exchange)      # 邮件服务器
         return res_pre, res_exc
+
+
+if __name__ == '__main__':
+    ip = input('DNS服务器ip：')
+    domain = input('要查询的域名：')
+    dns_type = input('域名记录类型：')
+    print('查询结果：' + str(rsv(ip, domain, dns_type)))

@@ -80,7 +80,7 @@ def db(i):
     pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)
     r = redis.Redis(connection_pool=pool)
     r.zincrby("server_zset", 1, "server_"+str(i))
-    print(r.zrevrange("server_zset", 0, -1, withscores=True))
+    # print(r.zrevrange("server_zset", 0, -1, withscores=True))
 
 
 # 初始化数据库

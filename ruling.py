@@ -8,7 +8,7 @@ def ruling(a):
     q = 0
     Max = 0
     Len = len(a)
-    for i in range(len(a)):
+    for i in range(Len):
         count = 0
         for j in range(Len-i-1):
             if a[Len - i - 1] == a[Len - i - 1 - j - 1]:
@@ -21,12 +21,10 @@ def ruling(a):
     else:
         return 0
 
-# def ruling2(a):
-#     counter = {}
-#     for k in a:
-#         if a.count(k) >= 1:
-#             counter[str(k)] = a.count(k)
-#     print(counter)
-#     # 对返回的结果按照字典的值从大到小排序
-#     counter1 = sorted(counter.items(), key=lambda x: x[1], reverse=True)
-#     print(counter1[0][0])
+
+if __name__ == '__main__':
+    arr = [['a'], ['a'], ['b']]
+    print('待裁决数组：' + str(arr))
+    print('裁决结果所在的下标：' + str(ruling(arr)))
+    print('裁决结果：' + str(arr[ruling(arr)]))
+

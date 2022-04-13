@@ -10,9 +10,6 @@ def dns_select():
     pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)
     r = redis.Redis(connection_pool=pool)
     server = r.zrevrange("server_zset", 0, 0)
-    print('所有DNS服务器ip：' + str(dns_ip))
-    print('有序集合(\'值\', 分数)：' + str(r.zrevrange("server_zset", 0, -1, withscores=True)))
-    print('出错最多的服务器：'+str(server[0]))
     rm = -1
     if server[0] == 'server_0':
         rm = 0
@@ -24,7 +21,10 @@ def dns_select():
         rm = 3
     dns_ip_cp = copy.deepcopy(dns_ip)
     del(dns_ip_cp[rm])
-    print('动态选择结果：'+str(dns_ip_cp))
+    # print('所有DNS服务器ip：' + str(dns_ip))
+    # print('有序集合(\'值\', 分数)：' + str(r.zrevrange("server_zset", 0, -1, withscores=True)))
+    # print('出错最多的服务器：'+str(server[0]))
+    # print('动态选择结果：'+str(dns_ip_cp))
     return rm, dns_ip_cp, dns_ip
 
 
